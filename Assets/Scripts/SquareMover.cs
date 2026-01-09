@@ -2,37 +2,45 @@ using UnityEngine;
 
 public class SquareMover : MonoBehaviour
 {
-    //public variables go here:
-    public float xMax = 5;
-    public float xMin = -5;
-    public float speed = 0.025F;
+    public float speed = 0.02f;
+    public float xMax;
+    public float xMin;
+    public Camera gameCamera;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-            
-     
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPosition = transform.position;
-        newPosition.x = newPosition.x + speed;
-        transform.position = newPosition;
+        Vector3 moverXPos = transform.position;
+        moverXPos.x = moverXPos.x + speed;
+        transform.position = moverXPos;
 
-        //if statement that moves the square to the left when it is greater than our max...
-        if (newPosition.x > xMax)
+        //Screen.width;
+        //gameCamera.WorldToScreenPoint(//somerandomvector);
+
+        //set xMax to wherever is too far to the right for the player to see
+        Vector3 screenTransformPosition = gameCamera.WorldToScreenPoint(transform.position);
+        xMax = Screen.width;
+
+        //set xMin to wherever is too far to the left for the player to see
+        xMin = 0;
+
+
+        if (xMax < screenTransformPosition.x)
         {
-            speed = speed *= -1;
+            speed *= -1;
         }
 
-        //if statement that moves the square to the right when it is less than our min...
-        if (newPosition.x < xMin)
+        if (xMin > screenTransformPosition.x)
         {
-            speed = speed *= -1;
+            speed *= -1;
         }
+
     }
 }
