@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SquareMover : MonoBehaviour
+public class Mover : MonoBehaviour
 {
     public float speed = 0.02f;
     public float xMax;
@@ -18,7 +18,8 @@ public class SquareMover : MonoBehaviour
     void Update()
     {
         Vector3 moverXPos = transform.position;
-        moverXPos.x = moverXPos.x + speed;
+        moverXPos.x += speed * Time.deltaTime;
+
         transform.position = moverXPos;
 
         //Screen.width;
