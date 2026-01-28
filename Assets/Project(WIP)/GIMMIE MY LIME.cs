@@ -24,14 +24,16 @@ public class GIMMIEMYLIME : MonoBehaviour
             transform.position = openlips;
         }
 
+
+        //hide lips again if timer is less than -5
         if (timer < -5)
         {
-            timer = 10;
+            timer = 7.5f;
 
 
             Vector3 openlips = transform.position;
-            //position to move openlips to when timer goes up
-            openlips.y = -10;
+            //position to move open lips back to when timer condition is met
+            openlips.y = -8.8f;
             transform.position = openlips;
         }
     }

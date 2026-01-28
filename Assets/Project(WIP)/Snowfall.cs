@@ -9,7 +9,8 @@ public class Snowfall : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //set snowflake position to random for each one
+        t=Random.Range(0f, 1f);
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class Snowfall : MonoBehaviour
         //run timer increasing t
         t+= Time.deltaTime;
 
+        //reset snowfall if t is greater than 1
         if (t > 1)
         {
             t = 0;

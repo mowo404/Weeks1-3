@@ -37,22 +37,23 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             
 
-            //position to move openlips to when timer goes up
+            //position to hide closed lips to when timer goes up
             lipsmove.y = -10;
 
             
         }
 
+        //if timer is less than -5 bring the closed lips back to the middle...
         if (timer < -5)
         {
-            timer = 10;
+            timer = 7.5f;
 
 
             lipsmove.y = 0;
             
             
         }
-
+        //placed on the outside so lips movement is not disrubted 
         transform.position = lipsmove;
     }
 }
